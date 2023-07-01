@@ -5,7 +5,7 @@ import numpy as np
 
 from ultralytics.nn.tasks import DetectionModel
 from ultralytics.yolo import v8
-from ultralytics.yolo.data import build_dataloader, build_yolo_dataset
+from ultralytics.yolo.data import build_dataloader, build_yolo_dataset, build_hhv_dataset
 from ultralytics.yolo.data.dataloaders.v5loader import create_dataloader
 from ultralytics.yolo.engine.trainer import BaseTrainer
 from ultralytics.yolo.utils import DEFAULT_CFG, LOGGER, RANK, colorstr
@@ -25,7 +25,8 @@ class DetectionTrainer(BaseTrainer):
             batch (int, optional): Size of batches, this is for `rect`. Defaults to None.
         """
         gs = max(int(de_parallel(self.model).stride.max() if self.model else 0), 32)
-        return build_yolo_dataset(self.args, img_path, batch, self.data, mode=mode, rect=mode == 'val', stride=gs)
+        # return build_yolo_dataset(self.args, img_path, batch, self.data, mode=mode, rect=mode == 'val', stride=gs)
+        return build_hhv_dataset(self.args, img_path, batch, self.data, mode=mode, rect=mode == 'val', stride=gs)
 
     def get_dataloader(self, dataset_path, batch_size=16, rank=0, mode='train'):
         """TODO: manage splits differently."""
