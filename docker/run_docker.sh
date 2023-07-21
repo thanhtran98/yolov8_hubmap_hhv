@@ -1,7 +1,7 @@
 if [ "$1" == "local" ]; then
     SOURCE="/home/bvdc1/thanhtt/repos/Kaggle/hubmap_hv/yolov8_hubmap_hhv/ultralytics"
     IMAGES="/media/bvdc1/data1/thanhtt_data/Kaggle/competitions/hubmap_hv"
-    OUTPUT="/media/bvdc1/data1/thanhtt_data/Kaggle/competitions/hubmap_hv/repos/yolov8_training"
+    OUTPUT="/media/bvdc1/data1/thanhtt_data/Kaggle/competitions/hubmap_hv/outputs/yolov8"
     DOCKER_IMAGE="hubmap_hhv_yolov8:0.1"
 elif [ "$1" == "dgx3" ]; then
     SOURCE="/u01/data/thanhtt/repos/Kaggle/hubmap_hv/yolov8_hubmap_hhv/ultralytics"
